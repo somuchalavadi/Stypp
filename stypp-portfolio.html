@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stypp — Creative Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{--black:#080808;--dark:#0f0f0f;--card:#141414;--gold:#F5A623;--gold2:#FF6B35;--white:#F0EDEA;--gray:#777;--border:rgba(255,255,255,0.07);--pink:#FF3CAC;--cyan:#00D4FF}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;cursor:none}
+#cd{position:fixed;top:0;left:0;width:7px;height:7px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+#cr{position:fixed;top:0;left:0;width:38px;height:38px;border:1.5px solid rgba(245,166,35,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s}
+body:has(a:hover) #cr,body:has(button:hover) #cr{width:58px;height:58px;border-color:var(--gold)}
+#loader{position:fixed;inset:0;background:var(--black);display:flex;align-items:center;justify-content:center;z-index:9000;transition:opacity .7s ease,visibility .7s ease}
+#loader.hidden{opacity:0;visibility:hidden}
+.lt{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,7vw,6rem);font-weight:800;letter-spacing:-.04em;overflow:hidden;display:flex;gap:2px}
+.lt span{display:inline-block;opacity:0;transform:translateY(110%);animation:lup .7s cubic-bezier(.77,0,.18,1) forwards}
+.lt span:nth-child(1){animation-delay:.05s}.lt span:nth-child(2){animation-delay:.15s}.lt span:nth-child(3){animation-delay:.25s}.lt span:nth-child(4){animation-delay:.35s;color:var(--gold)}.lt span:nth-child(5){animation-delay:.45s}
+@keyframes lup{to{opacity:1;transform:translateY(0)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;background:linear-gradient(to bottom,rgba(8,8,8,.98),transparent);transition:background .3s,padding .3s}
+nav.scrolled{background:rgba(8,8,8,.97);backdrop-filter:blur(20px);padding:14px 60px;border-bottom:1px solid var(--border)}
+.nl{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:-.02em;color:var(--white);text-decoration:none}
+.nl span{color:var(--gold)}
+.nlinks{display:flex;gap:30px;align-items:center}
+.nlinks a{color:var(--gray);text-decoration:none;font-size:.83rem;font-weight:400;letter-spacing:.04em;transition:color .2s}
+.nlinks a:hover{color:var(--white)}
+.ncta{background:var(--gold)!important;color:var(--black)!important;padding:10px 22px!important;border-radius:4px!important;font-weight:500!important}
+.ncta:hover{background:#d4901e!important}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 80px;position:relative;overflow:hidden}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 75% 35%,rgba(245,166,35,.06) 0%,transparent 65%),radial-gradient(ellipse 50% 60% at 15% 85%,rgba(255,60,172,.04) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 50% 110%,rgba(0,212,255,.03) 0%,transparent 60%),var(--black)}
+.hgrain{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
+.hline{position:absolute;top:0;bottom:0;width:1px;background:var(--border)}
+.hline:nth-child(3){left:33.33%}.hline:nth-child(4){left:66.66%}
+.htag{position:relative;display:inline-flex;align-items:center;gap:8px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;opacity:0;animation:fup .8s 1.2s forwards}
+.htag::before{content:'';width:22px;height:1px;background:var(--gold)}
+.hbadge{background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);color:var(--gold);font-size:.62rem;letter-spacing:.1em;padding:3px 10px;border-radius:20px;margin-left:6px}
+.htitle{position:relative;font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(3.2rem,8.5vw,9rem);line-height:.93;letter-spacing:-.045em;margin-bottom:44px}
+.htitle .ln{display:block;overflow:hidden}
+.htitle .ln span{display:block;opacity:0;transform:translateY(110%);animation:sup .9s cubic-bezier(.77,0,.18,1) forwards}
+.htitle .ln:nth-child(1) span{animation-delay:1.3s}.htitle .ln:nth-child(2) span{animation-delay:1.45s}
+.htitle .ln:nth-child(3) span{animation-delay:1.6s;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hbottom{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;opacity:0;animation:fup .8s 1.9s forwards}
+.hsub{max-width:420px;color:var(--gray);font-size:1.05rem;line-height:1.75;font-weight:300}
+.hacts{display:flex;gap:14px;flex-wrap:wrap}
+.hscroll{position:absolute;right:60px;bottom:80px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fup .8s 2.1s forwards}
+.hscroll span{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);writing-mode:vertical-rl}
+.sline{width:1px;height:56px;background:linear-gradient(to bottom,var(--gray),transparent);animation:sp 2s infinite}
+@keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+.ticker-wrap{background:var(--gold);padding:13px 0;overflow:hidden;white-space:nowrap}
+.ticker{display:inline-flex;animation:tick 28s linear infinite}
+.ticker-item{font-family:'Syne',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--black);padding:0 28px}
+.tdot{color:rgba(0,0,0,.35)}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+section{padding:120px 60px}
+.stag{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.stag::before{content:'';width:18px;height:1px;background:var(--gold)}
+.stitle{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,4.5rem);line-height:1;letter-spacing:-.03em;margin-bottom:64px}
+#services{background:var(--dark)}
+.srv-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px}
+.srv-head .stitle{margin-bottom:0}
+.srv-desc{max-width:300px;color:var(--gray);font-size:.88rem;font-weight:300;line-height:1.7;text-align:right}
+.srv-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.sc{background:var(--dark);padding:40px 20px;position:relative;overflow:hidden;transition:background .3s;cursor:none}
+.sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.77,0,.18,1)}
+.sc:hover{background:var(--card)}.sc:hover::after{transform:scaleX(1)}
+.sc-icon{font-size:1.7rem;margin-bottom:16px;display:block}
+.sc-num{font-size:.6rem;letter-spacing:.2em;color:var(--gray);margin-bottom:7px}
+.sc-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:-.01em;margin-bottom:7px;transition:color .3s}
+.sc:hover .sc-name{color:var(--gold)}
+.sc-desc{font-size:.75rem;color:var(--gray);line-height:1.6;font-weight:300}
+.sc.new-svc::before{content:'NEW';position:absolute;top:14px;right:14px;font-size:.52rem;letter-spacing:.14em;color:var(--gold2);background:rgba(255,107,53,.12);border:1px solid rgba(255,107,53,.25);padding:2px 6px;border-radius:2px}
+#work{background:var(--black)}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.wc{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--card);cursor:none}
+.wc.feat{grid-column:span 2;aspect-ratio:auto;min-height:480px}
+.wbg{position:absolute;inset:0;transition:transform .6s cubic-bezier(.77,0,.18,1)}
+.wc:hover .wbg{transform:scale(1.07)}
+.wov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.15) 60%,transparent 100%)}
+.whov{position:absolute;inset:0;background:rgba(245,166,35,.07);opacity:0;transition:opacity .4s}
+.wc:hover .whov{opacity:1}
+.wi{position:absolute;bottom:0;left:0;right:0;padding:26px}
+.wtags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.wtag{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:rgba(245,166,35,.12);padding:3px 8px;border-radius:2px}
+.wtitle{font-family:'Syne',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-.02em;margin-bottom:3px}
+.wsub{font-size:.76rem;color:rgba(240,237,234,.45);font-weight:300}
+.warrow{position:absolute;top:22px;right:22px;width:40px;height:40px;border:1px solid rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;opacity:0;transform:translate(8px,-8px);transition:opacity .3s,transform .3s;text-decoration:none;color:var(--white)}
+.wc:hover .warrow{opacity:1;transform:translate(0,0)}
+.bg-greezo{background:linear-gradient(135deg,#163826 0%,#1f4d32 50%,#0d2419 100%)}
+.bg-deessa{background:linear-gradient(135deg,#2d4a1e 0%,#4a7c30 50%,#1a2f10 100%)}
+.bg-flip{background:linear-gradient(135deg,#06001a 0%,#1a0035 45%,#35006b 100%)}
+.bg-ecomm{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
+.bg-fashion{background:linear-gradient(135deg,#2a0a2e 0%,#3d0f43 50%,#1a0520 100%)}
+.bg-rest{background:linear-gradient(135deg,#2d1b00 0%,#4a2d00 50%,#1a0f00 100%)}
+.cpat{position:absolute;inset:0;opacity:.12;background-image:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(255,255,255,.03) 30px,rgba(255,255,255,.03) 31px)}
+.clp{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Syne',sans-serif;font-size:2.6rem;font-weight:800;color:rgba(255,255,255,.1);letter-spacing:-.04em;text-align:center;line-height:1.1}
+#influencer{background:var(--dark);position:relative;overflow:hidden}
+.inf-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(255,60,172,.05) 0%,transparent 70%),radial-gradient(ellipse 50% 50% at 10% 50%,rgba(0,212,255,.04) 0%,transparent 60%)}
+.inf-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.inf-stitle{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4.5vw,4rem);line-height:1;letter-spacing:-.03em;margin-bottom:18px}
+.inf-stitle em{font-style:normal;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.inf-sub{color:var(--gray);font-size:.95rem;font-weight:300;line-height:1.75;margin-bottom:36px}
+.inf-pills{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:36px}
+.inf-pill{font-size:.73rem;letter-spacing:.05em;color:var(--white);background:rgba(255,255,255,.05);border:1px solid var(--border);padding:7px 16px;border-radius:100px;transition:border-color .2s,background .2s}
+.inf-pill:hover{border-color:rgba(255,60,172,.4);background:rgba(255,60,172,.07)}
+.inf-pill span{color:var(--gold)}
+.inf-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.inf-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:22px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;cursor:none}
+.inf-card:hover{border-color:rgba(255,60,172,.25);transform:translateY(-3px)}
+.inf-glow{position:absolute;top:0;right:0;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(255,60,172,.15) 0%,transparent 70%);pointer-events:none}
+.inf-plat{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-bottom:7px}
+.inf-stat{font-family:'Syne',sans-serif;font-weight:800;font-size:1.9rem;letter-spacing:-.04em;margin-bottom:3px}
+.inf-stat.pink{background:linear-gradient(90deg,var(--pink),#ff8adc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.inf-stat.cyan{background:linear-gradient(90deg,var(--cyan),#80eaff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.inf-stat.gold{color:var(--gold)}.inf-stat.green{color:#4ade80}
+.inf-lbl{font-size:.75rem;color:var(--gray);font-weight:300}
+.inf-types{display:flex;flex-direction:column;gap:9px}
+.itr{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:6px;transition:border-color .2s}
+.itr:hover{border-color:rgba(245,166,35,.2)}
+.itl{display:flex;align-items:center;gap:10px}
+.it-icon{font-size:1rem}
+.it-name{font-family:'Syne',sans-serif;font-weight:600;font-size:.85rem}
+.it-desc{font-size:.72rem;color:var(--gray);font-weight:300;margin-top:1px}
+.it-badge{font-size:.62rem;letter-spacing:.07em;color:var(--gold);background:rgba(245,166,35,.1);padding:3px 10px;border-radius:20px}
+#stats{padding:0}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.si{padding:52px 32px;background:var(--gold);text-align:center}
+.snum{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.8rem,5vw,5rem);color:var(--black);letter-spacing:-.04em;line-height:1;margin-bottom:5px}
+.slbl{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.55);font-weight:400}
+#process{background:var(--black)}
+.psteps{display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.psteps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:var(--border);z-index:0}
+.ps{padding:0 18px;position:relative;z-index:1}
+.pdot{width:56px;height:56px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--black);font-family:'Syne',sans-serif;font-weight:700;font-size:.73rem;color:var(--gray);margin-bottom:26px;transition:border-color .3s,color .3s,background .3s;cursor:none}
+.ps:hover .pdot{border-color:var(--gold);color:var(--gold);background:rgba(245,166,35,.06)}
+.pname{font-family:'Syne',sans-serif;font-weight:700;font-size:.98rem;letter-spacing:-.01em;margin-bottom:7px}
+.pdesc{font-size:.78rem;color:var(--gray);line-height:1.6;font-weight:300}
+#testimonials{background:var(--dark)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.tc{background:var(--card);padding:40px 32px;border:1px solid var(--border);position:relative;overflow:hidden;transition:border-color .3s;cursor:none}
+.tc:hover{border-color:rgba(245,166,35,.25)}
+.tq{font-family:'Syne',sans-serif;font-size:3.2rem;color:var(--gold);line-height:.8;margin-bottom:14px;opacity:.4}
+.tt{font-size:.92rem;line-height:1.8;color:rgba(240,237,234,.75);font-weight:300;margin-bottom:24px;font-style:italic}
+.tau{display:flex;align-items:center;gap:11px}
+.tav{width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;color:var(--black);font-size:.82rem}
+.tav.flip{background:linear-gradient(135deg,var(--pink),var(--cyan))}
+.tname{font-family:'Syne',sans-serif;font-weight:600;font-size:.88rem;margin-bottom:2px}
+.trole{font-size:.73rem;color:var(--gray);font-weight:300}
+#contact{background:var(--black);text-align:center;padding:160px 60px;position:relative;overflow:hidden}
+.cglow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:350px;background:radial-gradient(ellipse,rgba(245,166,35,.07) 0%,transparent 70%);pointer-events:none}
+.ceyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ctitle{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.8rem,8vw,7.5rem);letter-spacing:-.045em;line-height:.93;margin-bottom:18px;position:relative}
+.ctitle em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.csub{font-size:.98rem;color:var(--gray);font-weight:300;margin-bottom:16px;position:relative}
+.cphone{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:44px;position:relative;letter-spacing:.02em}
+.cphone a{color:var(--gold);text-decoration:none}.cphone a:hover{text-decoration:underline}
+.cacts{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn-p{background:var(--gold);color:var(--black);padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:.87rem;font-weight:500;letter-spacing:.03em;border:none;border-radius:4px;cursor:none;transition:background .2s,transform .2s;text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+.btn-p:hover{background:#d4901e;transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--white);padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:.87rem;font-weight:400;letter-spacing:.03em;border:1px solid var(--border);border-radius:4px;cursor:none;transition:border-color .2s,transform .2s;text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+.btn-o:hover{border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+.btn-wa{background:#25D366;color:#fff;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:.87rem;font-weight:500;border:none;border-radius:4px;cursor:none;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:background .2s,transform .2s}
+.btn-wa:hover{background:#1fb855;transform:translateY(-2px)}
+.btn-infl{background:linear-gradient(90deg,var(--pink),#b040a0);color:#fff;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:.87rem;font-weight:500;border:none;border-radius:4px;cursor:none;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:opacity .2s,transform .2s}
+.btn-infl:hover{opacity:.85;transform:translateY(-2px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:40px 60px;display:flex;align-items:center;justify-content:space-between}
+.flogo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
+.flogo span{color:var(--gold)}
+.fcopy{font-size:.76rem;color:var(--gray);font-weight:300}
+.flinks{display:flex;gap:20px}
+.flinks a{color:var(--gray);text-decoration:none;font-size:.78rem;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
+@keyframes fup{to{opacity:1;transform:translateY(0)}}
+@keyframes sup{to{opacity:1;transform:translateY(0)}}
+@media(max-width:1200px){.srv-grid{grid-template-columns:repeat(4,1fr)}.wgrid{grid-template-columns:repeat(2,1fr)}.wc.feat{grid-column:span 2}.psteps{grid-template-columns:repeat(3,1fr)}.psteps::before{display:none}.inf-layout{grid-template-columns:1fr;gap:48px}.inf-cards{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:768px){nav{padding:18px 20px}nav.scrolled{padding:12px 20px}.nlinks{display:none}section{padding:72px 20px}#hero{padding:0 20px 56px}.hscroll{display:none}.srv-head{flex-direction:column;align-items:flex-start;gap:12px}.srv-desc{text-align:left}.srv-grid{grid-template-columns:repeat(2,1fr)}.wgrid{grid-template-columns:1fr}.wc.feat{grid-column:span 1;min-height:300px}.sgrid{grid-template-columns:repeat(2,1fr)}.psteps{grid-template-columns:repeat(2,1fr);gap:24px}.tgrid{grid-template-columns:1fr}.inf-cards{grid-template-columns:repeat(2,1fr)}footer{flex-direction:column;gap:18px;text-align:center}.hbottom{flex-direction:column;align-items:flex-start}body{cursor:auto}#cd,#cr{display:none}}
+</style>
+</head>
+<body>
+<div id="cd"></div><div id="cr"></div>
+
+<div id="loader"><div class="lt"><span>S</span><span>T</span><span>Y</span><span>P</span><span>P</span></div></div>
+
+<nav id="nb">
+  <a href="#" class="nl">Sty<span>pp</span></a>
+  <div class="nlinks">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#influencer">Influencers</a>
+    <a href="#process">Process</a>
+    <a href="#contact" class="ncta">Let's Talk</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hbg"></div><div class="hgrain"></div>
+  <div class="hline"></div><div class="hline"></div>
+  <div class="htag">Creative Studio · Bengaluru <span class="hbadge">Now Onboarding Brands</span></div>
+  <h1 class="htitle">
+    <span class="ln"><span>We Build.</span></span>
+    <span class="ln"><span>We Shoot.</span></span>
+    <span class="ln"><span>We Market.</span></span>
+  </h1>
+  <div class="hbottom">
+    <p class="hsub">Crafting digital experiences and visual stories for brands that mean business. Web, video, editing, photography, influencer marketing — all under one roof.</p>
+    <div class="hacts">
+      <a href="#work" class="btn-p">See Our Work</a>
+      <a href="#contact" class="btn-o">Let's Talk →</a>
+    </div>
+  </div>
+  <div class="hscroll"><div class="sline"></div><span>Scroll</span></div>
+</section>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">Web Development <span class="tdot">✦</span></span>
+    <span class="ticker-item">Brand Photography <span class="tdot">✦</span></span>
+    <span class="ticker-item">Content Editing <span class="tdot">✦</span></span>
+    <span class="ticker-item">Influencer Marketing <span class="tdot">✦</span></span>
+    <span class="ticker-item">Digital Marketing <span class="tdot">✦</span></span>
+    <span class="ticker-item">Videography <span class="tdot">✦</span></span>
+    <span class="ticker-item">Reel Editing <span class="tdot">✦</span></span>
+    <span class="ticker-item">Creator Network <span class="tdot">✦</span></span>
+    <span class="ticker-item">Web Development <span class="tdot">✦</span></span>
+    <span class="ticker-item">Brand Photography <span class="tdot">✦</span></span>
+    <span class="ticker-item">Content Editing <span class="tdot">✦</span></span>
+    <span class="ticker-item">Influencer Marketing <span class="tdot">✦</span></span>
+    <span class="ticker-item">Digital Marketing <span class="tdot">✦</span></span>
+    <span class="ticker-item">Videography <span class="tdot">✦</span></span>
+    <span class="ticker-item">Reel Editing <span class="tdot">✦</span></span>
+    <span class="ticker-item">Creator Network <span class="tdot">✦</span></span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="srv-head reveal">
+    <div><div class="stag">What We Do</div><h2 class="stitle">Our Services</h2></div>
+    <p class="srv-desc">End-to-end creative solutions — from pixels to influence.</p>
+  </div>
+  <div class="srv-grid">
+    <div class="sc reveal"><span class="sc-icon">🌐</span><div class="sc-num">01</div><div class="sc-name">Web Development</div><p class="sc-desc">High-performance sites built to convert. Fast, beautiful, custom-coded.</p></div>
+    <div class="sc reveal rd1"><span class="sc-icon">📣</span><div class="sc-num">02</div><div class="sc-name">Digital Marketing</div><p class="sc-desc">Campaigns across social, search & paid that actually grow your reach.</p></div>
+    <div class="sc reveal rd2"><span class="sc-icon">🎬</span><div class="sc-num">03</div><div class="sc-name">Video Creation</div><p class="sc-desc">Cinematic reels and brand films that stop the scroll instantly.</p></div>
+    <div class="sc reveal rd3 new-svc"><span class="sc-icon">✂️</span><div class="sc-num">04</div><div class="sc-name">Content Editing</div><p class="sc-desc">Trending cuts, reels, short-form with viral-ready hooks and pacing.</p></div>
+    <div class="sc reveal rd4 new-svc"><span class="sc-icon">🤝</span><div class="sc-num">05</div><div class="sc-name">Influencer Connect</div><p class="sc-desc">Nano to macro creator matchmaking. Authentic campaigns that convert.</p></div>
+    <div class="sc reveal rd1"><span class="sc-icon">📸</span><div class="sc-num">06</div><div class="sc-name">Brand Photography</div><p class="sc-desc">Premium product & lifestyle shoots. Every frame a brand statement.</p></div>
+    <div class="sc reveal rd2"><span class="sc-icon">🎥</span><div class="sc-num">07</div><div class="sc-name">Videography</div><p class="sc-desc">Events, testimonials & documentary brand content done right.</p></div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="reveal"><div class="stag">Portfolio</div><h2 class="stitle">Our Work Speaks</h2></div>
+  <div class="wgrid">
+    <div class="wc feat reveal">
+      <div class="wbg bg-greezo"><div class="cpat"></div><div class="clp">Greezo<br><span style="font-size:.9rem;opacity:.5">greezo.in</span></div></div>
+      <div class="wov"></div><div class="whov"></div>
+      <a href="https://greezo.in" target="_blank" class="warrow">↗</a>
+      <div class="wi">
+        <div class="wtags"><span class="wtag">Web Dev</span><span class="wtag">Branding</span><span class="wtag">Photography</span><span class="wtag">Marketing</span></div>
+        <div class="wtitle">Greezo</div><div class="wsub">Healthy Food & Juice Brand · Bengaluru · greezo.in</div>
+      </div>
+    </div>
+    <div class="wc reveal">
+      <div class="wbg bg-deessa"><div class="cpat"></div><div class="clp">Dee's<br><span style="font-size:.8rem;opacity:.5">deessalad.shop</span></div></div>
+      <div class="wov"></div><div class="whov"></div>
+      <a href="https://www.deessalad.shop" target="_blank" class="warrow">↗</a>
+      <div class="wi">
+        <div class="wtags"><span class="wtag">Web Dev</span><span class="wtag">Photography</span></div>
+        <div class="wtitle">Dee's Salad Station</div><div class="wsub">Fresh & Healthy Salads · deessalad.shop</div>
+      </div>
+    </div>
+    <div class="wc reveal rd1">
+      <div class="wbg bg-flip"><div class="cpat" style="opacity:.2;background-image:repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(180,0,255,.07) 20px,rgba(180,0,255,.07) 21px)"></div><div class="clp" style="color:rgba(200,100,255,.18)">The<br>Flip</div></div>
+      <div class="wov"></div><div class="whov" style="background:rgba(180,0,255,.06)"></div>
+      <a href="https://theflip.in" target="_blank" class="warrow">↗</a>
+      <div class="wi">
+        <div class="wtags"><span class="wtag">Web Dev</span><span class="wtag">Video Editing</span><span class="wtag">Branding</span></div>
+        <div class="wtitle">TheFlip.in</div><div class="wsub">Creative Platform · theflip.in</div>
+      </div>
+    </div>
+    <div class="wc reveal rd2">
+      <div class="wbg bg-ecomm"><div class="cpat"></div><div class="clp">E-COM</div></div>
+      <div class="wov"></div><div class="whov"></div><div class="warrow">↗</div>
+      <div class="wi"><div class="wtags"><span class="wtag">E-Commerce</span><span class="wtag">Video</span></div><div class="wtitle">E-Commerce Brand</div><div class="wsub">Full digital presence</div></div>
+    </div>
+    <div class="wc reveal rd3">
+      <div class="wbg bg-fashion"><div class="cpat"></div><div class="clp">MODE</div></div>
+      <div class="wov"></div><div class="whov"></div><div class="warrow">↗</div>
+      <div class="wi"><div class="wtags"><span class="wtag">Videography</span><span class="wtag">Influencer</span></div><div class="wtitle">Fashion Label</div><div class="wsub">Lookbook + influencer campaign</div></div>
+    </div>
+    <div class="wc reveal rd4">
+      <div class="wbg bg-rest"><div class="cpat"></div><div class="clp">RESTO</div></div>
+      <div class="wov"></div><div class="whov"></div><div class="warrow">↗</div>
+      <div class="wi"><div class="wtags"><span class="wtag">Photography</span><span class="wtag">Reels</span></div><div class="wtitle">Restaurant Chain</div><div class="wsub">Brand photography & social reels</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="influencer">
+  <div class="inf-bg"></div>
+  <div class="inf-layout">
+    <div class="inf-left">
+      <div class="stag reveal">Influencer Marketing</div>
+      <h2 class="inf-stitle reveal">Connect With<br><em>Real Creators.</em><br>Real Impact.</h2>
+      <p class="inf-sub reveal">We bridge brands with the right voices — micro, nano, and macro influencers across Instagram, YouTube, and beyond. Authentic content that your audience actually trusts.</p>
+      <div class="inf-pills reveal">
+        <div class="inf-pill">📸 Instagram <span>Reels</span></div>
+        <div class="inf-pill">▶️ YouTube <span>Shorts</span></div>
+        <div class="inf-pill">🎵 Long-form YouTube</div>
+        <div class="inf-pill">👤 Nano <span>1K–10K</span></div>
+        <div class="inf-pill">👥 Micro <span>10K–100K</span></div>
+        <div class="inf-pill">🌟 Macro <span>100K+</span></div>
+        <div class="inf-pill">🍽️ Food & Bev</div>
+        <div class="inf-pill">👗 Fashion</div>
+        <div class="inf-pill">💪 Fitness</div>
+        <div class="inf-pill">🏠 Lifestyle</div>
+      </div>
+      <div class="reveal">
+        <a href="https://wa.me/917259354415?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Influencer%20Marketing" target="_blank" class="btn-infl">💫 Start Influencer Campaign</a>
+      </div>
+    </div>
+    <div class="inf-right reveal">
+      <div class="inf-cards">
+        <div class="inf-card"><div class="inf-glow"></div><div class="inf-plat">📸 Instagram</div><div class="inf-stat pink">50+</div><div class="inf-lbl">Active Creator Partners</div></div>
+        <div class="inf-card"><div class="inf-glow" style="background:radial-gradient(circle,rgba(0,212,255,.15) 0%,transparent 70%)"></div><div class="inf-plat">▶️ YouTube</div><div class="inf-stat cyan">20+</div><div class="inf-lbl">YouTube Collabs Done</div></div>
+        <div class="inf-card"><div class="inf-glow" style="background:radial-gradient(circle,rgba(245,166,35,.12) 0%,transparent 70%)"></div><div class="inf-plat">📊 Avg Reach</div><div class="inf-stat gold">2M+</div><div class="inf-lbl">Monthly Impressions</div></div>
+        <div class="inf-card"><div class="inf-glow" style="background:radial-gradient(circle,rgba(74,222,128,.12) 0%,transparent 70%)"></div><div class="inf-plat">📈 ROI</div><div class="inf-stat green">8x</div><div class="inf-lbl">Avg Campaign Return</div></div>
+      </div>
+      <div class="inf-types">
+        <div class="itr"><div class="itl"><span class="it-icon">🎯</span><div><div class="it-name">Nano Influencers</div><div class="it-desc">1K – 10K · Hyper-local, high trust</div></div></div><span class="it-badge">Best ROI</span></div>
+        <div class="itr"><div class="itl"><span class="it-icon">⚡</span><div><div class="it-name">Micro Influencers</div><div class="it-desc">10K – 100K · Niche authority</div></div></div><span class="it-badge">Most Popular</span></div>
+        <div class="itr"><div class="itl"><span class="it-icon">🌟</span><div><div class="it-name">Macro Creators</div><div class="it-desc">100K+ · Mass awareness</div></div></div><span class="it-badge">High Reach</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stats" style="padding:0">
+  <div class="sgrid">
+    <div class="si reveal"><div class="snum" data-target="20">0</div><div class="slbl">Brands Served</div></div>
+    <div class="si reveal rd1"><div class="snum" data-target="50">0</div><div class="slbl">Projects Delivered</div></div>
+    <div class="si reveal rd2"><div class="snum" data-target="50">0</div><div class="slbl">Creator Network</div></div>
+    <div class="si reveal rd3"><div class="snum" data-target="100">0</div><div class="slbl">Client Retention %</div></div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="reveal"><div class="stag">How We Work</div><h2 class="stitle">The Process</h2></div>
+  <div class="psteps">
+    <div class="ps reveal"><div class="pdot">01</div><div class="pname">Discover</div><p class="pdesc">Deep dive into your brand, goals, audience, and competition.</p></div>
+    <div class="ps reveal rd1"><div class="pdot">02</div><div class="pname">Strategize</div><p class="pdesc">Build the creative & influencer roadmap for your brand identity.</p></div>
+    <div class="ps reveal rd2"><div class="pdot">03</div><div class="pname">Create</div><p class="pdesc">Design, code, shoot, edit. Quality at every step. No shortcuts.</p></div>
+    <div class="ps reveal rd3"><div class="pdot">04</div><div class="pname">Amplify</div><p class="pdesc">Push through creator networks, paid ads & organic growth loops.</p></div>
+    <div class="ps reveal rd4"><div class="pdot">05</div><div class="pname">Grow</div><p class="pdesc">Continuous optimization and campaigns to keep scaling up.</p></div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="reveal"><div class="stag">Client Love</div><h2 class="stitle">What They Say</h2></div>
+  <div class="tgrid">
+    <div class="tc reveal"><div class="tq">"</div><p class="tt">Stypp transformed our entire brand presence. The website, photos, reels — everything felt premium and exactly us. Orders started flowing within days of launch.</p><div class="tau"><div class="tav">G</div><div><div class="tname">Founder, Greezo</div><div class="trole">Healthy Food Brand · greezo.in</div></div></div></div>
+    <div class="tc reveal rd1"><div class="tq">"</div><p class="tt">The team understood our vision from day one. Photography and web design was beyond what we imagined. Our online orders doubled after the new site went live.</p><div class="tau"><div class="tav">D</div><div><div class="tname">Dee, Dee's Salad Station</div><div class="trole">Fresh Salad Brand · deessalad.shop</div></div></div></div>
+    <div class="tc reveal rd2"><div class="tq">"</div><p class="tt">The influencer campaign they ran was incredibly targeted. The creators felt like genuine fans of our product — that authenticity showed in the results. Great team.</p><div class="tau"><div class="tav flip">F</div><div><div class="tname">Team TheFlip</div><div class="trole">Creative Platform · theflip.in</div></div></div></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="cglow"></div>
+  <div class="ceyebrow reveal">✦ Let's Collaborate</div>
+  <h2 class="ctitle reveal">Ready to Build<br><em>Something Great?</em></h2>
+  <p class="csub reveal">Call us, WhatsApp us, or drop a mail — we respond fast.</p>
+  <div class="cphone reveal">📞 <a href="tel:+917259354415">+91 72593 54415</a></div>
+  <div class="cacts reveal">
+    <a href="tel:+917259354415" class="btn-p">📞 Call Now</a>
+    <a href="https://wa.me/917259354415?text=Hi%20Stypp%2C%20I%20want%20to%20work%20with%20you!" target="_blank" class="btn-wa">💬 WhatsApp</a>
+    <a href="mailto:hello@stypp.in" class="btn-o">📩 Email Us</a>
+    <a href="https://wa.me/917259354415?text=Hi%2C%20interested%20in%20Influencer%20Marketing" target="_blank" class="btn-infl">🌟 Influencer Collab</a>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">Sty<span>pp</span></div>
+  <div class="fcopy">© 2025 Stypp Creative Studio · Bengaluru · +91 72593 54415</div>
+  <div class="flinks">
+    <a href="#services">Services</a>
+    <a href="#influencer">Influencers</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px'});
+(function a(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(a)})();
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hidden'),1600));
+const nb=document.getElementById('nb');
+window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',scrollY>50));
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+function cnt(el,t){let c=0,s=t/55;const iv=setInterval(()=>{c=Math.min(c+s,t);el.textContent=Math.floor(c)+(c>=t?(t===100?'%':'+'):'');if(c>=t)clearInterval(iv)},28)}
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('[data-target]').forEach(n=>cnt(n,+n.dataset.target));so.unobserve(e.target)}}),{threshold:.25});
+const ss=document.querySelector('#stats');if(ss)so.observe(ss);
+</script>
+</body>
+</html>
