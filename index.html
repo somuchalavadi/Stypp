@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stypp — Creative Studio</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080808'/%3E%3Ctext font-family='Arial Black%2Csans-serif' font-weight='900' font-size='21' x='2' y='24'%3E%3Ctspan fill='%23F0EDEA'%3ES%3C%2Ftspan%3E%3Ctspan fill='%23F5A623'%3Ep%3C%2Ftspan%3E%3C%2Ftext%3E%3C%2Fsvg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
@@ -18,11 +19,11 @@ body:has(a:hover) #cr,body:has(button:hover) #cr{width:58px;height:58px;border-c
 #loader.hidden{opacity:0;visibility:hidden}
 .lt{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,7vw,6rem);font-weight:800;letter-spacing:-.04em;overflow:hidden;display:flex;gap:2px}
 .lt span{display:inline-block;opacity:0;transform:translateY(110%);animation:lup .7s cubic-bezier(.77,0,.18,1) forwards}
-.lt span:nth-child(1){animation-delay:.05s}.lt span:nth-child(2){animation-delay:.15s}.lt span:nth-child(3){animation-delay:.25s}.lt span:nth-child(4){animation-delay:.35s;color:var(--gold)}.lt span:nth-child(5){animation-delay:.45s}
+.lt span:nth-child(1){animation-delay:.05s;color:#F0EDEA}.lt span:nth-child(2){animation-delay:.15s;color:#F0EDEA}.lt span:nth-child(3){animation-delay:.25s;color:#F0EDEA}.lt span:nth-child(4){animation-delay:.35s;color:#F5A623}.lt span:nth-child(5){animation-delay:.45s;color:#F5A623}
 @keyframes lup{to{opacity:1;transform:translateY(0)}}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;background:linear-gradient(to bottom,rgba(8,8,8,.98),transparent);transition:background .3s,padding .3s}
 nav.scrolled{background:rgba(8,8,8,.97);backdrop-filter:blur(20px);padding:14px 60px;border-bottom:1px solid var(--border)}
-.nl{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:-.02em;color:var(--white);text-decoration:none}
+.nl{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:-.02em;color:#F0EDEA;text-decoration:none}
 .nl span{color:var(--gold)}
 .nlinks{display:flex;gap:30px;align-items:center}
 .nlinks a{color:var(--gray);text-decoration:none;font-size:.83rem;font-weight:400;letter-spacing:.04em;transition:color .2s}
@@ -184,7 +185,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 <body>
 <div id="cd"></div><div id="cr"></div>
 
-<div id="loader"><div class="lt"><span>S</span><span>T</span><span>Y</span><span>P</span><span>P</span></div></div>
+<div id="loader"><div class="lt"><span>S</span><span>t</span><span>y</span><span>p</span><span>p</span></div></div>
 
 <nav id="nb">
   <a href="#" class="nl">Sty<span>pp</span></a>
@@ -378,7 +379,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
   <div class="cacts reveal">
     <a href="tel:+917259354415" class="btn-p">📞 Call Now</a>
     <a href="https://wa.me/917259354415?text=Hi%20Stypp%2C%20I%20want%20to%20work%20with%20you!" target="_blank" class="btn-wa">💬 WhatsApp</a>
-    <a href="mailto:hello@stypp.in" class="btn-o">📩 Email Us</a>
+    <a href="/cdn-cgi/l/email-protection#026a676e6e6d4271767b72722c6b6c" class="btn-o">📩 Email Us</a>
     <a href="https://wa.me/917259354415?text=Hi%2C%20interested%20in%20Influencer%20Marketing" target="_blank" class="btn-infl">🌟 Influencer Collab</a>
   </div>
 </section>
@@ -394,7 +395,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const cd=document.getElementById('cd'),cr=document.getElementById('cr');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px'});
