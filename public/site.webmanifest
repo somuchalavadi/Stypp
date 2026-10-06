@@ -1,0 +1,23 @@
+{
+  "name": "Stypp — Digital & Marketing Agency",
+  "short_name": "Stypp",
+  "description": "Stypp is a Bengaluru-based digital and marketing agency building websites and growing brands through digital marketing, Google Ads, Meta Ads, social media, influencer marketing and SEO, AEO & GEO.",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#080808",
+  "background_color": "#080808",
+  "display": "standalone"
+}
