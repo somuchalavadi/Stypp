@@ -385,11 +385,30 @@
       animation: lup .7s cubic-bezier(.77, 0, .18, 1) forwards;
     }
 
-    .lt span:nth-child(1) { animation-delay: .05s; color: #F0EDEA; }
-    .lt span:nth-child(2) { animation-delay: .15s; color: #F0EDEA; }
-    .lt span:nth-child(3) { animation-delay: .25s; color: #F0EDEA; }
-    .lt span:nth-child(4) { animation-delay: .35s; color: #F5A623; }
-    .lt span:nth-child(5) { animation-delay: .45s; color: #F5A623; }
+    .lt span:nth-child(1) {
+      animation-delay: .05s;
+      color: #F0EDEA;
+    }
+
+    .lt span:nth-child(2) {
+      animation-delay: .15s;
+      color: #F0EDEA;
+    }
+
+    .lt span:nth-child(3) {
+      animation-delay: .25s;
+      color: #F0EDEA;
+    }
+
+    .lt span:nth-child(4) {
+      animation-delay: .35s;
+      color: #F5A623;
+    }
+
+    .lt span:nth-child(5) {
+      animation-delay: .45s;
+      color: #F5A623;
+    }
 
     @keyframes lup {
       to {
@@ -502,8 +521,13 @@
       background: var(--border);
     }
 
-    .hline:nth-child(3) { left: 33.33%; }
-    .hline:nth-child(4) { left: 66.66%; }
+    .hline:nth-child(3) {
+      left: 33.33%;
+    }
+
+    .hline:nth-child(4) {
+      left: 66.66%;
+    }
 
     .htag {
       position: relative;
@@ -559,8 +583,11 @@
       animation: sup .9s cubic-bezier(.77, 0, .18, 1) forwards;
     }
 
-    .htitle .ln:nth-child(1) span { animation-delay: 1.3s; color: #F0EDEA; }
-    
+    .htitle .ln:nth-child(1) span {
+      animation-delay: 1.3s;
+      color: #F0EDEA;
+    }
+
     /* Make WE MARKET (Line 2) the strongest visual emphasis with glowing orange accent */
     .htitle .ln:nth-child(2) span {
       animation-delay: 1.45s;
@@ -573,7 +600,10 @@
     }
 
     /* WE SHOOT (Line 3) */
-    .htitle .ln:nth-child(3) span { animation-delay: 1.6s; color: #F0EDEA; }
+    .htitle .ln:nth-child(3) span {
+      animation-delay: 1.6s;
+      color: #F0EDEA;
+    }
 
     .hbottom {
       position: relative;
@@ -638,8 +668,15 @@
     }
 
     @keyframes sp {
-      0%, 100% { opacity: .3; }
-      50% { opacity: 1; }
+
+      0%,
+      100% {
+        opacity: .3;
+      }
+
+      50% {
+        opacity: 1;
+      }
     }
 
     /* Dual Marquee Tickers (Section 12) */
@@ -653,7 +690,7 @@
       padding: 13px 0;
       overflow: hidden;
       white-space: nowrap;
-      border-top: 1px solid rgba(0,0,0,0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .ticker-wrap-creative {
@@ -705,13 +742,23 @@
     }
 
     @keyframes tick {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     @keyframes tick-rev {
-      0% { transform: translateX(-50%); }
-      100% { transform: translateX(0); }
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
     }
 
     /* Common Section Styles */
@@ -2119,17 +2166,34 @@
       transform: translateY(0);
     }
 
-    .rd1 { transition-delay: .1s; }
-    .rd2 { transition-delay: .2s; }
-    .rd3 { transition-delay: .3s; }
-    .rd4 { transition-delay: .4s; }
+    .rd1 {
+      transition-delay: .1s;
+    }
+
+    .rd2 {
+      transition-delay: .2s;
+    }
+
+    .rd3 {
+      transition-delay: .3s;
+    }
+
+    .rd4 {
+      transition-delay: .4s;
+    }
 
     @keyframes fup {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes sup {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Responsive Media Queries */
@@ -2334,7 +2398,8 @@
     <div class="hline"></div>
     <div class="hline"></div>
 
-    <div class="htag">STYPP · Digital &amp; Marketing Agency · Bengaluru <span class="hbadge">Now Onboarding Brands</span></div>
+    <div class="htag">STYPP · Digital &amp; Marketing Agency · Bengaluru <span class="hbadge">Now Onboarding
+        Brands</span></div>
 
     <!-- Semantic Single H1 (Section 2, 22, 23) -->
     <h1 class="htitle">
@@ -2346,7 +2411,8 @@
     <div class="hbottom">
       <div class="hsub-wrap">
         <p class="hsub">
-          Stypp is a Bengaluru-based digital and marketing agency building websites and growing brands through digital marketing, Google Ads, Meta Ads, social media, influencer marketing and SEO, AEO &amp; GEO.
+          Stypp is a Bengaluru-based digital and marketing agency building websites and growing brands through digital
+          marketing, Google Ads, Meta Ads, social media, influencer marketing and SEO, AEO &amp; GEO.
         </p>
         <p class="hsub-line">
           WE BUILD. WE MARKET. WE SHOOT.
@@ -2418,7 +2484,8 @@
         <h2 class="stitle">Services Engineered for Growth</h2>
       </div>
       <p class="srv-desc">
-        We build the digital foundation, market your brand across high-intent channels, and run campaigns that drive measurable business outcomes.
+        We build the digital foundation, market your brand across high-intent channels, and run campaigns that drive
+        measurable business outcomes.
       </p>
     </div>
 
@@ -2433,7 +2500,10 @@
         <div class="sc-badge">Core Capability</div>
         <h3 class="sc-name">Website Development</h3>
         <p class="sc-desc">
-          Custom, high-performance websites for businesses, corporate brands, hotels, hospitality properties, restaurants, and startups — including landing pages, website redesigns, and conversion-focused digital experiences. We engineer responsive, SEO-ready, and performance-focused websites built from the ground up to turn marketing traffic into qualified enquiries, bookings, leads and customers.
+          Custom, high-performance websites for businesses, corporate brands, hotels, hospitality properties,
+          restaurants, and startups — including landing pages, website redesigns, and conversion-focused digital
+          experiences. We engineer responsive, SEO-ready, and performance-focused websites built from the ground up to
+          turn marketing traffic into qualified enquiries, bookings, leads and customers.
         </p>
         <div class="sc-tags">
           <span class="sc-tag">Business Websites</span>
@@ -2458,7 +2528,10 @@
         <div class="sc-badge">Growth Strategy</div>
         <h3 class="sc-name">Digital Marketing</h3>
         <p class="sc-desc">
-          Growth strategy, targeted campaigns, and ongoing marketing built around clear business goals. Stypp works across Google Ads, Meta Ads, social media, campaign strategy, influencer marketing, SEO, AEO, GEO, content and creative — connecting every channel into a disciplined customer acquisition system that captures demand, drives traffic, and scales your brand.
+          Growth strategy, targeted campaigns, and ongoing marketing built around clear business goals. Stypp works
+          across Google Ads, Meta Ads, social media, campaign strategy, influencer marketing, SEO, AEO, GEO, content and
+          creative — connecting every channel into a disciplined customer acquisition system that captures demand,
+          drives traffic, and scales your brand.
         </p>
         <div class="sc-tags">
           <span class="sc-tag">Google Ads</span>
@@ -2481,7 +2554,9 @@
         <div class="sc-badge">Paid Search</div>
         <h3 class="sc-name">Google Ads</h3>
         <p class="sc-desc">
-          Search, Performance Max, remarketing and conversion-focused campaigns designed to capture existing commercial intent and generate enquiries, bookings, leads and sales with strict keyword strategy and landing page alignment.
+          Search, Performance Max, remarketing and conversion-focused campaigns designed to capture existing commercial
+          intent and generate enquiries, bookings, leads and sales with strict keyword strategy and landing page
+          alignment.
         </p>
         <div class="sc-tags">
           <span class="sc-tag">Google Search Ads</span>
@@ -2501,7 +2576,9 @@
         <div class="sc-badge">Social Advertising</div>
         <h3 class="sc-name">Meta Ads</h3>
         <p class="sc-desc">
-          Instagram and Facebook advertising for brand awareness, qualified lead generation, direct sales, retargeting and customer acquisition. Engineered with rigorous audience segmentation, creative testing, and campaign optimization.
+          Instagram and Facebook advertising for brand awareness, qualified lead generation, direct sales, retargeting
+          and customer acquisition. Engineered with rigorous audience segmentation, creative testing, and campaign
+          optimization.
         </p>
         <div class="sc-tags">
           <span class="sc-tag">Instagram Ads</span>
@@ -2521,7 +2598,9 @@
         <div class="sc-badge">Brand Activation</div>
         <h3 class="sc-name">Social Media & Campaigns</h3>
         <p class="sc-desc">
-          Social media treated as a dedicated marketing channel. Strategic social management, structured content planning, brand campaigns and execution across relevant platforms to build genuine community and convert followers into customers.
+          Social media treated as a dedicated marketing channel. Strategic social management, structured content
+          planning, brand campaigns and execution across relevant platforms to build genuine community and convert
+          followers into customers.
         </p>
         <div class="sc-tags">
           <span class="sc-tag">Social Strategy</span>
@@ -2541,7 +2620,9 @@
         <div class="sc-badge">Creator Campaigns</div>
         <h3 class="sc-name">Influencer Marketing</h3>
         <p class="sc-desc">
-          Creator discovery, collaborations, campaign management and influencer-led brand campaigns designed to reach relevant audiences. The product is the campaign itself — end-to-end strategy, creator coordination, content direction and tracking.
+          Creator discovery, collaborations, campaign management and influencer-led brand campaigns designed to reach
+          relevant audiences. The product is the campaign itself — end-to-end strategy, creator coordination, content
+          direction and tracking.
         </p>
         <div class="sc-tags">
           <span class="sc-tag">Creator Discovery</span>
@@ -2561,7 +2642,11 @@
         <div class="sc-badge">Client Service</div>
         <h3 class="sc-name">SEO / AEO / GEO</h3>
         <p class="sc-desc">
-          Strategic search visibility services for clients. We help businesses acquire organic Google Search visibility and build presence across modern AI search platforms. Our client SEO services include search-intent strategy, technical SEO, on-page optimization, content optimization, internal linking, Search Console monitoring, Answer Engine Optimization (AEO), and Generative Engine Optimization (GEO) for ChatGPT, Google Gemini, and Perplexity.
+          Strategic search visibility services for clients. We help businesses acquire organic Google Search visibility
+          and build presence across modern AI search platforms. Our client SEO services include search-intent strategy,
+          technical SEO, on-page optimization, content optimization, internal linking, Search Console monitoring, Answer
+          Engine Optimization (AEO), and Generative Engine Optimization (GEO) for ChatGPT, Google Gemini, and
+          Perplexity.
         </p>
         <div class="sc-tags">
           <span class="sc-tag">Search Engine Optimization</span>
@@ -2585,7 +2670,8 @@
         <div class="stag">08 — Supporting Capability</div>
         <h2 class="creative-stitle">Creative That Powers the Campaign.</h2>
         <p class="creative-desc">
-          Need content for your campaigns? We create the visual assets that help brands communicate clearly, stop the scroll and support their marketing. We don't just create content — we create content with a marketing purpose.
+          Need content for your campaigns? We create the visual assets that help brands communicate clearly, stop the
+          scroll and support their marketing. We don't just create content — we create content with a marketing purpose.
         </p>
       </div>
 
@@ -2608,12 +2694,14 @@
         <div class="cr-card">
           <span class="cr-icon">📱</span>
           <h4 class="cr-title">Reels & Shorts</h4>
-          <p class="cr-desc">Fast-paced, algorithm-aligned vertical videos designed to maximize organic and paid reach.</p>
+          <p class="cr-desc">Fast-paced, algorithm-aligned vertical videos designed to maximize organic and paid reach.
+          </p>
         </div>
         <div class="cr-card">
           <span class="cr-icon">✂️</span>
           <h4 class="cr-title">Video Editing</h4>
-          <p class="cr-desc">Precision cutting, sound design, typography, and motion pacing engineered to hold attention.</p>
+          <p class="cr-desc">Precision cutting, sound design, typography, and motion pacing engineered to hold
+            attention.</p>
         </div>
         <div class="cr-card">
           <span class="cr-icon">🎨</span>
@@ -2630,34 +2718,42 @@
       <div class="stag">About Stypp</div>
       <h2 class="stitle">Digital &amp; Marketing Agency Built for Growth</h2>
       <p class="about-lead">
-        Stypp is a digital and marketing agency that builds websites, grows brands and creates the campaigns and content that move them forward.
+        Stypp is a digital and marketing agency that builds websites, grows brands and creates the campaigns and content
+        that move them forward.
       </p>
       <div class="about-grid">
         <div class="about-card">
           <div class="about-step">01 — BUILD</div>
           <h3 class="about-title">WE BUILD.</h3>
           <p class="about-text">
-            Custom websites, high-converting landing pages, and responsive digital platforms engineered for speed, mobile usability, and search readiness. Your website is the digital foundation of your brand — the destination where marketing traffic turns into enquiries, bookings, leads and sales.
+            Custom websites, high-converting landing pages, and responsive digital platforms engineered for speed,
+            mobile usability, and search readiness. Your website is the digital foundation of your brand — the
+            destination where marketing traffic turns into enquiries, bookings, leads and sales.
           </p>
         </div>
         <div class="about-card hl">
           <div class="about-step">02 — MARKET</div>
           <h3 class="about-title">WE MARKET.</h3>
           <p class="about-text">
-            Targeted digital marketing across Google Ads, Meta Ads, social media management, brand campaigns, influencer marketing, and client SEO, AEO &amp; GEO. We capture active intent, drive qualified traffic, and execute multi-channel campaigns aligned with commercial growth.
+            Targeted digital marketing across Google Ads, Meta Ads, social media management, brand campaigns, influencer
+            marketing, and client SEO, AEO &amp; GEO. We capture active intent, drive qualified traffic, and execute
+            multi-channel campaigns aligned with commercial growth.
           </p>
         </div>
         <div class="about-card">
           <div class="about-step">03 — SHOOT</div>
           <h3 class="about-title">WE SHOOT.</h3>
           <p class="about-text">
-            On-location videography, brand photography, commercial video creation, and high-retention Reels produced with a direct marketing purpose. Our creative production is a supporting capability engineered to power your campaigns, stop the scroll, and elevate brand perception.
+            On-location videography, brand photography, commercial video creation, and high-retention Reels produced
+            with a direct marketing purpose. Our creative production is a supporting capability engineered to power your
+            campaigns, stop the scroll, and elevate brand perception.
           </p>
         </div>
       </div>
       <div class="about-foot">
         <div class="about-quote">
-          "From digital foundation to ongoing customer acquisition — we integrate website development, marketing campaigns, and creative production into one cohesive engine."
+          "From digital foundation to ongoing customer acquisition — we integrate website development, marketing
+          campaigns, and creative production into one cohesive engine."
         </div>
       </div>
     </div>
@@ -2669,7 +2765,9 @@
       <div class="stag">Integrated Growth Model</div>
       <h2 class="stitle">One Brand. Multiple Growth Channels.</h2>
       <p style="color:var(--gray-light);font-size:.95rem;font-weight:300;line-height:1.7;">
-        Your website is where your marketing traffic becomes enquiries, bookings, leads and customers. Stypp unites digital infrastructure, audience discovery, paid campaigns, and conversion optimization into a single, cohesive engine.
+        Your website is where your marketing traffic becomes enquiries, bookings, leads and customers. Stypp unites
+        digital infrastructure, audience discovery, paid campaigns, and conversion optimization into a single, cohesive
+        engine.
       </p>
     </div>
 
@@ -2775,7 +2873,8 @@
           </div>
           <h3 class="wtitle">Hotel Shiva Inn</h3>
           <p class="wsub">
-            Complete website development, local SEO optimization, brand photography and social reels for premier hospitality in Haveri, Karnataka · shivainn.com
+            Complete website development, local SEO optimization, brand photography and social reels for premier
+            hospitality in Haveri, Karnataka · shivainn.com
           </p>
         </div>
       </div>
@@ -2854,7 +2953,7 @@
         <div class="wi">
           <div class="wtags">
             <span class="wtag">Website Development</span>
-            <span class="wtag">Hospitality Marketing</span>
+
           </div>
           <h3 class="wtitle">Jiana Suites</h3>
           <p class="wsub">Luxury hospitality stay website design, digital brand presentation and enquiry flow</p>
@@ -2879,9 +2978,11 @@
             <span class="wtag">Digital Marketing</span>
           </div>
           <h3 class="wtitle">
-            <a href="https://www.instagram.com/pgassociationblr/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">PG Association</a>
+            <a href="https://www.instagram.com/pgassociationblr/" target="_blank" rel="noopener noreferrer"
+              style="color:inherit;text-decoration:none;">PG Association</a>
           </h3>
-          <p class="wsub">We handle the complete digital presence of PG Association, including its Instagram presence and digital marketing.</p>
+          <p class="wsub">We handle the complete digital presence of PG Association, including its Instagram presence
+            and digital marketing.</p>
         </div>
       </div>
 
@@ -2902,9 +3003,11 @@
             <span class="wtag">Digital Marketing</span>
           </div>
           <h3 class="wtitle">
-            <a href="https://www.instagram.com/ammamess.blr/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Amma Mess</a>
+            <a href="https://www.instagram.com/ammamess.blr/" target="_blank" rel="noopener noreferrer"
+              style="color:inherit;text-decoration:none;">Amma Mess</a>
           </h3>
-          <p class="wsub">Social media management, brand content, and digital marketing campaigns across Instagram · Bengaluru</p>
+          <p class="wsub">Social media management, brand content, and digital marketing campaigns across Instagram ·
+            Bengaluru</p>
         </div>
       </div>
     </div>
@@ -2918,7 +3021,9 @@
         <div class="stag reveal">Influencer Marketing</div>
         <h2 class="inf-stitle reveal">Creator Campaigns That<br><em>Move Audiences.</em></h2>
         <p class="inf-sub reveal">
-          We bridge brands with the right voices — nano, micro, and macro creators across Instagram, YouTube, and beyond. In influencer marketing, the product is the campaign: strategic creator selection, authentic briefing, seamless coordination, and conversion-focused distribution.
+          We bridge brands with the right voices — nano, micro, and macro creators across Instagram, YouTube, and
+          beyond. In influencer marketing, the product is the campaign: strategic creator selection, authentic briefing,
+          seamless coordination, and conversion-focused distribution.
         </p>
         <div class="inf-pills reveal">
           <div class="inf-pill">📸 Instagram <span>Reels</span></div>
@@ -2946,19 +3051,23 @@
             <p class="inf-card-desc">Niche audience targeting and creator discovery matched to your campaign goals.</p>
           </div>
           <div class="inf-card">
-            <div class="inf-glow" style="background:radial-gradient(circle,rgba(0,212,255,.15) 0%,transparent 70%)"></div>
+            <div class="inf-glow" style="background:radial-gradient(circle,rgba(0,212,255,.15) 0%,transparent 70%)">
+            </div>
             <div class="inf-card-tag">PHASE 02</div>
             <h4 class="inf-card-heading">Creator Coordination</h4>
             <p class="inf-card-desc">Product dispatch, briefing, script angles, and strict quality control.</p>
           </div>
           <div class="inf-card">
-            <div class="inf-glow" style="background:radial-gradient(circle,rgba(245,166,35,.12) 0%,transparent 70%)"></div>
+            <div class="inf-glow" style="background:radial-gradient(circle,rgba(245,166,35,.12) 0%,transparent 70%)">
+            </div>
             <div class="inf-card-tag">PHASE 03</div>
             <h4 class="inf-card-heading">Multi-Format Assets</h4>
-            <p class="inf-card-desc">High-retention Reels, Shorts, unboxings, and honest reviews that drive interest.</p>
+            <p class="inf-card-desc">High-retention Reels, Shorts, unboxings, and honest reviews that drive interest.
+            </p>
           </div>
           <div class="inf-card">
-            <div class="inf-glow" style="background:radial-gradient(circle,rgba(74,222,128,.12) 0%,transparent 70%)"></div>
+            <div class="inf-glow" style="background:radial-gradient(circle,rgba(74,222,128,.12) 0%,transparent 70%)">
+            </div>
             <div class="inf-card-tag">PHASE 04</div>
             <h4 class="inf-card-heading">Campaign Tracking</h4>
             <p class="inf-card-desc">Deliverable verification, engagement reporting, and conversion link tracking.</p>
@@ -3033,7 +3142,8 @@
       <div class="stag">Framework</div>
       <h2 class="stitle">How We Grow Brands</h2>
       <p style="max-width:560px;color:var(--gray-light);font-size:.92rem;font-weight:300;line-height:1.7;">
-        A disciplined, step-by-step methodology designed to eliminate guesswork, align digital assets, and drive consistent business growth.
+        A disciplined, step-by-step methodology designed to eliminate guesswork, align digital assets, and drive
+        consistent business growth.
       </p>
     </div>
 
@@ -3046,7 +3156,8 @@
       <div class="ps reveal rd1">
         <div class="pdot">02</div>
         <h3 class="pname">Strategize</h3>
-        <p class="pdesc">We build the digital and marketing plan — channels, campaigns, audience, budget and creative direction.</p>
+        <p class="pdesc">We build the digital and marketing plan — channels, campaigns, audience, budget and creative
+          direction.</p>
       </div>
       <div class="ps reveal rd2">
         <div class="pdot">03</div>
@@ -3082,7 +3193,8 @@
         <div>
           <div class="tq">"</div>
           <p class="tt">
-            Stypp built our entire digital presence. The website, brand photos, and social reels positioned Greezo as a premium healthy food brand right from day one.
+            Stypp built our entire digital presence. The website, brand photos, and social reels positioned Greezo as a
+            premium healthy food brand right from day one.
           </p>
         </div>
         <div class="tau">
@@ -3098,7 +3210,8 @@
         <div>
           <div class="tq">"</div>
           <p class="tt">
-            The team designed a fast, clean online store and product photography that showcases our salads perfectly. Ordering became smooth and effortless for our customers.
+            The team designed a fast, clean online store and product photography that showcases our salads perfectly.
+            Ordering became smooth and effortless for our customers.
           </p>
         </div>
         <div class="tau">
@@ -3114,7 +3227,8 @@
         <div>
           <div class="tq">"</div>
           <p class="tt">
-            From web development to creator campaigns and video pacing, Stypp delivers with deep creative standards and genuine commercial focus.
+            From web development to creator campaigns and video pacing, Stypp delivers with deep creative standards and
+            genuine commercial focus.
           </p>
         </div>
         <div class="tau">
@@ -3134,7 +3248,8 @@
       <div class="stag">Direct Answers & AEO</div>
       <h2 class="stitle">Frequently Asked Questions</h2>
       <p style="color:var(--gray-light);font-size:.92rem;font-weight:300;line-height:1.7;">
-        Concise, factual information on Stypp's capabilities, business model, and services for clients and search engines.
+        Concise, factual information on Stypp's capabilities, business model, and services for clients and search
+        engines.
       </p>
     </div>
 
@@ -3143,7 +3258,10 @@
       <details class="faq-item reveal" open>
         <summary class="faq-summary">What does Stypp do?</summary>
         <div class="faq-answer">
-          Stypp is a digital and marketing agency based in Bengaluru, India. We operate across three core pillars: We Build (custom websites, landing pages and digital experiences), We Market (digital marketing, Google Ads, Meta Ads, social media campaigns, influencer marketing and SEO/AEO/GEO), and We Shoot (video, photography and reels designed specifically to power marketing campaigns).
+          Stypp is a digital and marketing agency based in Bengaluru, India. We operate across three core pillars: We
+          Build (custom websites, landing pages and digital experiences), We Market (digital marketing, Google Ads, Meta
+          Ads, social media campaigns, influencer marketing and SEO/AEO/GEO), and We Shoot (video, photography and reels
+          designed specifically to power marketing campaigns).
         </div>
       </details>
 
@@ -3151,7 +3269,9 @@
       <details class="faq-item reveal rd1" open>
         <summary class="faq-summary">Is Stypp a digital marketing agency?</summary>
         <div class="faq-answer">
-          Yes. Stypp is primarily a digital and marketing agency. We help brands acquire customers and scale through paid advertising, search engine optimization, social media marketing, influencer campaigns, and conversion-focused websites.
+          Yes. Stypp is primarily a digital and marketing agency. We help brands acquire customers and scale through
+          paid advertising, search engine optimization, social media marketing, influencer campaigns, and
+          conversion-focused websites.
         </div>
       </details>
 
@@ -3159,7 +3279,9 @@
       <details class="faq-item reveal">
         <summary class="faq-summary">Does Stypp build websites?</summary>
         <div class="faq-answer">
-          Yes. Website development is a core Stypp capability. We build custom, high-performance websites for businesses, corporate brands, hotels, restaurants, D2C brands and startups, engineered to convert marketing traffic into enquiries, bookings, leads and sales.
+          Yes. Website development is a core Stypp capability. We build custom, high-performance websites for
+          businesses, corporate brands, hotels, restaurants, D2C brands and startups, engineered to convert marketing
+          traffic into enquiries, bookings, leads and sales.
         </div>
       </details>
 
@@ -3167,7 +3289,9 @@
       <details class="faq-item reveal rd1">
         <summary class="faq-summary">Does Stypp manage Google Ads and Meta Ads?</summary>
         <div class="faq-answer">
-          Yes. We design, execute and optimize performance advertising campaigns across Google (Search Ads, Performance Max, Remarketing) and Meta (Instagram and Facebook Ads) focused on customer acquisition, lead generation, and sales.
+          Yes. We design, execute and optimize performance advertising campaigns across Google (Search Ads, Performance
+          Max, Remarketing) and Meta (Instagram and Facebook Ads) focused on customer acquisition, lead generation, and
+          sales.
         </div>
       </details>
 
@@ -3175,7 +3299,9 @@
       <details class="faq-item reveal">
         <summary class="faq-summary">Does Stypp handle social media?</summary>
         <div class="faq-answer">
-          Yes. We treat social media as an active marketing channel, providing strategic management, content planning, creative direction, brand campaigns, and audience engagement across Instagram, YouTube and other relevant platforms.
+          Yes. We treat social media as an active marketing channel, providing strategic management, content planning,
+          creative direction, brand campaigns, and audience engagement across Instagram, YouTube and other relevant
+          platforms.
         </div>
       </details>
 
@@ -3183,7 +3309,10 @@
       <details class="faq-item reveal rd1">
         <summary class="faq-summary">Does Stypp provide SEO, AEO and GEO services to clients?</summary>
         <div class="faq-answer">
-          Yes. Stypp provides comprehensive Search Engine Optimization (SEO), Answer Engine Optimization (AEO), and Generative Engine Optimization (GEO) services to clients. We help businesses acquire organic Google Search visibility, execute search-intent strategies, implement technical and on-page SEO, optimize content, and build authority across AI discovery platforms like ChatGPT, Google Gemini, and Perplexity.
+          Yes. Stypp provides comprehensive Search Engine Optimization (SEO), Answer Engine Optimization (AEO), and
+          Generative Engine Optimization (GEO) services to clients. We help businesses acquire organic Google Search
+          visibility, execute search-intent strategies, implement technical and on-page SEO, optimize content, and build
+          authority across AI discovery platforms like ChatGPT, Google Gemini, and Perplexity.
         </div>
       </details>
 
@@ -3191,7 +3320,9 @@
       <details class="faq-item reveal">
         <summary class="faq-summary">Does Stypp provide influencer marketing?</summary>
         <div class="faq-answer">
-          Yes. Stypp executes end-to-end influencer marketing campaigns with nano, micro and macro creators across Instagram and YouTube, managing creator discovery, briefing, coordination, creative direction, and campaign tracking.
+          Yes. Stypp executes end-to-end influencer marketing campaigns with nano, micro and macro creators across
+          Instagram and YouTube, managing creator discovery, briefing, coordination, creative direction, and campaign
+          tracking.
         </div>
       </details>
 
@@ -3199,7 +3330,9 @@
       <details class="faq-item reveal rd1">
         <summary class="faq-summary">Does Stypp provide video and creative production?</summary>
         <div class="faq-answer">
-          Yes. Creative production is our supporting capability. We shoot on-location brand videos, commercial photography, and edit Instagram Reels specifically created to stop the scroll and support active marketing campaigns.
+          Yes. Creative production is our supporting capability. We shoot on-location brand videos, commercial
+          photography, and edit Instagram Reels specifically created to stop the scroll and support active marketing
+          campaigns.
         </div>
       </details>
 
@@ -3215,7 +3348,8 @@
       <details class="faq-item reveal rd1">
         <summary class="faq-summary">What industries does Stypp work with?</summary>
         <div class="faq-answer">
-          Stypp has verified project experience across hospitality and hotels, restaurants and food brands, D2C retail brands, professional associations, creative platforms, and startups.
+          Stypp has verified project experience across hospitality and hotels, restaurants and food brands, D2C retail
+          brands, professional associations, creative platforms, and startups.
         </div>
       </details>
 
@@ -3223,7 +3357,8 @@
       <details class="faq-item reveal">
         <summary class="faq-summary">How can I contact Stypp?</summary>
         <div class="faq-answer">
-          You can contact Stypp directly by phone or WhatsApp at +91 72593 54415, by email at contact@stypp.in, or by booking a project consultation on our website at https://www.stypp.in/.
+          You can contact Stypp directly by phone or WhatsApp at +91 72593 54415, by email at contact@stypp.in, or by
+          booking a project consultation on our website at https://www.stypp.in/.
         </div>
       </details>
     </div>
@@ -3235,7 +3370,8 @@
     <div class="ceyebrow reveal">✦ Let's Collaborate</div>
     <h2 class="ctitle reveal">Ready to Grow<br><em>Your Brand?</em></h2>
     <p class="csub reveal">
-      Tell us what you're trying to achieve. We'll help you figure out the website, channels, campaigns and creative needed to get there.
+      Tell us what you're trying to achieve. We'll help you figure out the website, channels, campaigns and creative
+      needed to get there.
     </p>
     <div class="cphone reveal">📞 <a href="tel:+917259354415">+91 72593 54415</a></div>
     <div class="cacts reveal">
@@ -3259,15 +3395,20 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="flogo">Sty<span>pp</span></div>
-        <div class="fentity" style="color:var(--gold);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:6px 0 14px;">Digital &amp; Marketing Agency</div>
+        <div class="fentity"
+          style="color:var(--gold);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:6px 0 14px;">
+          Digital &amp; Marketing Agency</div>
         <p class="fdesc">
-          Stypp is a Bengaluru-based digital and marketing agency building websites and growing brands through digital marketing, Google Ads, Meta Ads, social media, influencer marketing and SEO, AEO &amp; GEO, supported by creative production.
+          Stypp is a Bengaluru-based digital and marketing agency building websites and growing brands through digital
+          marketing, Google Ads, Meta Ads, social media, influencer marketing and SEO, AEO &amp; GEO, supported by
+          creative production.
         </p>
         <div class="fcontact-list">
           <div>📍 Bengaluru, Karnataka, India</div>
           <div>📞 <a href="tel:+917259354415">+91 72593 54415</a></div>
           <div>📩 <a href="mailto:contact@stypp.in">contact@stypp.in</a></div>
-          <div>📷 <a href="https://www.instagram.com/stypp_creativestudio/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+          <div>📷 <a href="https://www.instagram.com/stypp_creativestudio/" target="_blank"
+              rel="noopener noreferrer">Instagram</a></div>
         </div>
       </div>
 
@@ -3306,14 +3447,16 @@
           <li><a href="#services">Brand Photography</a></li>
           <li><a href="#services">Reels Production</a></li>
           <li><a href="#services">Video Editing</a></li>
-          <li><a href="https://www.instagram.com/stypp_creativestudio/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://www.instagram.com/stypp_creativestudio/" target="_blank"
+              rel="noopener noreferrer">Instagram</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
       <div class="fcopy">
-        © 2025–2026 <strong>Stypp</strong> · Digital &amp; Marketing Agency · Bengaluru, Karnataka, India. All rights reserved.
+        © 2025–2026 <strong>Stypp</strong> · Digital &amp; Marketing Agency · Bengaluru, Karnataka, India. All rights
+        reserved.
       </div>
       <div class="fsublinks">
         <a href="#services">Services</a>
@@ -3322,7 +3465,8 @@
         <a href="#work">Work</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
-        <a href="https://www.instagram.com/stypp_creativestudio/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.instagram.com/stypp_creativestudio/" target="_blank"
+          rel="noopener noreferrer">Instagram</a>
       </div>
     </div>
   </footer>
@@ -3332,16 +3476,16 @@
     // Custom cursor tracking
     const cd = document.getElementById('cd'), cr = document.getElementById('cr');
     let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { 
-      mx = e.clientX; 
-      my = e.clientY; 
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX;
+      my = e.clientY;
       if (cd) { cd.style.left = mx + 'px'; cd.style.top = my + 'px'; }
     });
-    (function a() { 
-      rx += (mx - rx) * .11; 
-      ry += (my - ry) * .11; 
+    (function a() {
+      rx += (mx - rx) * .11;
+      ry += (my - ry) * .11;
       if (cr) { cr.style.left = rx + 'px'; cr.style.top = ry + 'px'; }
-      requestAnimationFrame(a); 
+      requestAnimationFrame(a);
     })();
 
     // Loader removal
@@ -3360,14 +3504,14 @@
 
     // Intersection observer for reveals
     const ro = new IntersectionObserver(es => {
-      es.forEach(e => { 
-        if (e.isIntersecting) { 
-          e.target.classList.add('visible'); 
-          ro.unobserve(e.target); 
-        } 
+      es.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          ro.unobserve(e.target);
+        }
       });
     }, { threshold: .08, rootMargin: '0px 0px -30px 0px' });
-    
+
     document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
   </script>
 </body>
